@@ -1,0 +1,36 @@
+﻿@page
+@model AviatorWebSite.Pages.Fleet.DeleteModel
+
+<form method="post">
+    <input hidden asp-for="AirplaneCard.Id" />
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary pl-3">Delete Airplane Card</h2>
+            <hr />
+        </div>
+        <div class="mb-3">
+            <label asp-for="AirplaneCard.Model"></label>
+            <input asp-for="AirplaneCard.Model" disabled class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="AirplaneCard.Range"></label>
+            <input asp-for="AirplaneCard.Range" disabled class="form-control" />
+        </div>
+        <div>
+            <label asp-for="AirplaneCard.Speed"></label>
+            <input asp-for="AirplaneCard.Speed" disabled class="form-control" />
+        </div>
+        <div>
+            <label asp-for="AirplaneCard.Image"></label>
+            <input asp-for="AirplaneCard.Image" disabled class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-danger" style="width:110px;">Delete</button>
+        <a asp-page="Index" class="btn btn-secondary" style="width:130px;">Back to List</a>
+    </div>
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

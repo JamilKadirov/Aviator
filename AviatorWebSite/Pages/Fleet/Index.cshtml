@@ -1,0 +1,47 @@
+﻿@page
+@model AviatorWebSite.Pages.Fleet.IndexModel
+
+<partial name="_Notification" />
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h1 class="text-primary">Our Fleet</h1>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-page="Create" class="btn btn-primary">
+                <i class="bi bi-plus-square"></i> &nbsp; Create New Card
+            </a>
+        </div>
+    </div>    
+</div>
+
+<br /><br />
+
+<div class="card-columns">
+    @foreach(var plane in Model.Airplanes)
+    {
+        <div class="card">
+            <div class="card-img" style="background-image: url('@plane.Image');"></div>
+            <div class="card-body">
+                <h3 class="card-title text-center">@plane.Model</h3>
+                <div class="container p-1">
+                    <div class="row pt-0">
+                        <div class="col-6">
+                            <h5>Range: @plane.Range NM</h5>
+                            <h5>Speed: @plane.Speed KIAS</h5>
+                        </div>
+                        <div class="col-6 text-end">
+                            <a asp-page="Delete" asp-route-id="@plane.Id" class="btn btn-danger mx-2">
+                                <i class="bi bi-trash"></i> &nbsp; Delete Card
+                            </a>
+                        </div>
+                     </div>
+                </div>         
+            </div>
+        </div>
+        <br />
+    }
+    
+    <br />
+</div>
